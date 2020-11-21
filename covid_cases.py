@@ -35,7 +35,7 @@ while True:
     if region in ("exit", "EXIT"):
         break
     for row in reader:
-        if(region in(row[2], row[3])):
+        if region in(row[2], row[3]):
             print("**************************************")
             print("Province: ", row[2])
             print("Country: ", row[3])
