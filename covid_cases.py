@@ -1,24 +1,28 @@
+import datetime
 import csv
 import wget
-import datetime
 
 day = datetime.datetime.now().day
-month = datetime.datetime.now().month
-year = datetime.datetime.now().year
-date = str(month) + "-" + str(day) + "-" + str(year)
-link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
+Month = datetime.datetime.now().month
+Year = datetime.datetime.now().year
+date = str(Month) + "-" + str(day) + "-" + str(Year)
+link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
+"master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
 
 while True:
     print("\n" + date)
     try:
         try:
             open(date)
-        except:
+        except Exception as open_error:
+            print("No downloaded database. Downloading now...")
             wget.download(link, date)
-    except Exception as ex:
+            print("Download complete!")
+    except Exception as download_error:
         day = day - 1
-        date = str(month) + "-" + str(day) + "-" + str(year)
-        link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
+        date = str(Month) + "-" + str(day) + "-" + str(Year)
+        link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
+        "master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
     else:
         break
 
@@ -28,10 +32,10 @@ while True:
     file = open(date)
     reader = csv.reader(file)
     region = input("Enter province or country: ")
-    if region == "exit" or region == "EXIT":
+    if region in ("exit", "EXIT"):
         break
     for row in reader:
-        if(region == row[2] or region == row[3]):
+        if(region in(row[2], row[3])):
             print("**************************************")
             print("Province: ", row[2])
             print("Country: ", row[3])
