@@ -16,5 +16,6 @@ PLease make sure to install the pip python module before running the script.
 ### Windows
 1) Run command prompt as administrator.
  - Go to Start > Windows System > Right click on command prompt and run as administrator.
+OR
  - Press Windows Key + R and press cmd. Then press Ctrl + Shift + Enter.
 2) Execute `pip install wget`.
