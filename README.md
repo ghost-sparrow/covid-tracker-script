@@ -10,3 +10,11 @@ A simple python script to fetch the latest covid info
 6) Ask the user for input of a province or a country.
 7) If a province or a country exists, then print the latest covid info of that place. If not, print nothing.
 8) Go back to step 6 until the user gives interrupt or gives `exit` as province.
+
+## NOTE
+PLease make sure to install the pip python module before running the script.
+### Windows
+1) Run command prompt as administrator.
+ - Go to Start > Windows System > Right click on command prompt and run as administrator.
+ - Press Windows Key + R and press cmd. Then press Ctrl + Shift + Enter.
+2) Execute `pip install wget`.
