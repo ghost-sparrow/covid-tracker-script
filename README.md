@@ -13,7 +13,7 @@ A simple python script to fetch the latest covid info
 8) Go back to step 6 until the user gives interrupt or gives `exit` as province.
 
 ## NOTE
-PLease make sure to install the pip python module before running the script.
+Please make sure to install the pip python module before running the script.
 ### Windows
 1) Run command prompt as administrator.
  - Go to Start > Windows System > Right click on command prompt and run as administrator.
