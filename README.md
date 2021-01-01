@@ -4,7 +4,7 @@ A simple python script to fetch the latest covid info
 ## How it works
 1) First, get the current date in MM-DD-YYYY format.
 2) Check if the csv database for that date exists abd has been downloaded. If not, download it using wget from [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports).
-3) If wget throwss error(meaning the database does not exist for that day), decreament the day by one.
+3) If wget throws error(meaning that the database does not exist for that day), decreament the day by one.
 4) Go back to step 2 until the latest covid info has been downloaded.
 5) Open the file with csv reader.
 6) Ask the user for input of a province or a country.<br />
