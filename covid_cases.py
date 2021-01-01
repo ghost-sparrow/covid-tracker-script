@@ -1,3 +1,4 @@
+#!/bin/python3
 import datetime
 import csv
 import wget
@@ -10,6 +11,18 @@ Year = datetime.datetime.now().year
 #The database of a certain day is saved as its date.
 #For example, a database of 21st November 2020 will be saved as 11-21-2020
 date = str(Month) + "-" + str(day) + "-" + str(Year)
+
+def decremeant_date(dy, mnth, yr):
+    if(dy == 1):
+        dy = 31
+        if(mnth == 1):
+            mnth = 12
+            yr = yr-1
+            return {dy, mnth, yr}
+        mnth = mnth - 1
+        return {dy, mnth, yr}
+    dy = dy - 1
+    return {dy, mnth, yr}
 
 #Link from where to download the file
 link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
@@ -29,7 +42,7 @@ while True:
             print("Download complete!")
     except Exception as download_error:
         #If error occured downloading the file, decreament the day and generate a new date and link
-        day = day - 1
+        Month, Year, day = decremeant_date(day, Month, Year)
         date = str(Month) + "-" + str(day) + "-" + str(Year)
         link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
         "master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
