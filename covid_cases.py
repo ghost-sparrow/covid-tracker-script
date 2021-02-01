@@ -54,7 +54,6 @@ while True:
         date = Month_str + "-" + day_str + "-" + str(Year)
         link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
         "master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
-        print(link)
         print('No database for the given date exists. Decrementing date.')
     else:
         #If everything works fine, continue to the program
