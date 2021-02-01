@@ -18,11 +18,11 @@ def decremeant_date(dy, mnth, yr):
         if(mnth == 1):
             mnth = 12
             yr = yr-1
-            return {dy, mnth, yr}
+            return [dy, mnth, yr]
         mnth = mnth - 1
-        return {dy, mnth, yr}
+        return [dy, mnth, yr]
     dy = dy - 1
-    return {dy, mnth, yr}
+    return [dy, mnth, yr]
 
 #Link from where to download the file
 link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
@@ -42,11 +42,20 @@ while True:
             print("Download complete!")
     except Exception as download_error:
         #If error occured downloading the file, decreament the day and generate a new date and link
-        Month, Year, day = decremeant_date(day, Month, Year)
-        date = str(Month) + "-" + str(day) + "-" + str(Year)
+        day, Month, Year = decremeant_date(day, Month, Year)
+        if(day < 10):
+            day_str = "0" + str(day)
+        else:
+            day_str = str(day)
+        if(Month < 10):
+            Month_str = "0" + str(Month)
+        else:
+            Month_str = str(Month)
+        date = Month_str + "-" + day_str + "-" + str(Year)
         link = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/"\
         "master/csse_covid_19_data/csse_covid_19_daily_reports/" + date + ".csv"
-         print('No database for the given date exists. Decrementing date.')
+        print(link)
+        print('No database for the given date exists. Decrementing date.')
     else:
         #If everything works fine, continue to the program
         break
